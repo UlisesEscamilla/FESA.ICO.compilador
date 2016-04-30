@@ -1,0 +1,94 @@
+
+/***
+
+   Máquina virtual v 1.0
+   Lee codigo ensamblador, previamente optimizado, y lo ejecuta paso a paso,
+   mostrando en pantalla cada uno de ellos.
+   Trabaja bajo el esquema de arquitectura Von Newman
+
+   Lenguaje : Python 3.0
+   Programadores: 
+                  Carlos Ramos Flores
+                  Ulises de la Cruz Escamilla
+**/
+
+
+/**
+   #### Consideraciones ####
+   # La localidad de memoria es un numero entero de 3 digitos
+   # Las funciones que definan como valor de retorno a bool con True or False, 
+     se trata del éxito de la operación. A menos que se indique lo contrario.
+**/
+
+/**
+   CLASE MaquinaVirtual:
+
+         int:countProg                # Inicia en 0, lleva el conteo de la instrucción siguiente
+         generico: ac                 # Acumulador, no es un tipo de dato inmutable
+         list:instructions           # lista de inastrucciones separadas en tokens
+
+         # Sin definir
+         def newMaq 
+         # Sin definir
+         def rebootMaq
+ 
+         # Lee el codigo ensamblador de un archivo txt
+         # Recibe un archivo txt
+         # Retorna un list con cada línea de codigo separada en tokens
+         # Depende de def:SeparaTokens()
+         def readCode(txt:fuente)
+             # Asigna el valor a la viable list:instructions
+
+         # separa en tokens una lista
+         # Recibe un list
+         # Retorna un list de tokens
+         def separaTokens(list:code)
+
+         # Sin definir
+         def execute ()
+
+**/
+
+/** 
+  CLASE Memoria:
+
+	 int:longitud          # longitud de la memoria
+         dic:memory           # Diccionario que contiene la memoria
+
+         # Crea un diccionario que simulará la memoria RAM
+         # Recibe un int con la longitud que se creará la memoria
+         # Retorna a bool con True or False
+         def newMemory(int:tamanyo)
+             # Asigna valor a variable int:longitud
+
+         # Carga cada token a una localidad de memoria
+         # Recibe un list
+         # Retorna a bool con True or False
+         def loadMemoria(list:tokens)
+             # Asigna valor a variable dic:memory
+
+         # Asigna valores de forma manual a la memoria
+         # Recibe un diccionario
+         # Retorna a bool con True or False
+         def assignMemoria(dic:valoresAsig)
+             # Asigna valor a variable dic:memory
+
+         # Muestra los valores alojados en memoria
+         # Retorna un diccionario con los valores de dic:memory
+         def showMemoria(none)
+**/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
