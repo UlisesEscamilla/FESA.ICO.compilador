@@ -1,0 +1,14 @@
+LDV 0
+STA x
+LDA x
+IN1 None
+STA a
+LDA a
+IN3 a
+LDA x
+ADD 1
+STA x
+LDA x
+SUB 5
+JMZ 3
+END None;
