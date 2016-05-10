@@ -25,6 +25,8 @@ class MyFrame1 ( wx.Frame ):
 		bSizer1 = wx.BoxSizer( wx.VERTICAL )
 		
 		self.m_panel1 = wx.Panel( self, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.TAB_TRAVERSAL )
+		self.m_panel1.SetBackgroundColour( wx.SystemSettings.GetColour( wx.SYS_COLOUR_BTNFACE ) )
+		
 		bSizer4 = wx.BoxSizer( wx.HORIZONTAL )
 		
 		bSizer6 = wx.BoxSizer( wx.HORIZONTAL )
@@ -33,10 +35,10 @@ class MyFrame1 ( wx.Frame ):
 		
 		# Grid
 		self.m_grid1.CreateGrid( 60, 2 )
-		self.m_grid1.EnableEditing( True )
+		self.m_grid1.EnableEditing( False )
 		self.m_grid1.EnableGridLines( True )
 		self.m_grid1.EnableDragGridSize( False )
-		self.m_grid1.SetMargins( 0, 0 )
+		self.m_grid1.SetMargins( 10, 0 )
 		
 		# Columns
 		self.m_grid1.SetColSize( 0, 90 )
@@ -58,8 +60,10 @@ class MyFrame1 ( wx.Frame ):
 		self.m_grid1.SetRowLabelAlignment( wx.ALIGN_CENTRE, wx.ALIGN_CENTRE )
 		
 		# Label Appearance
+		self.m_grid1.SetLabelFont( wx.Font( 10, 74, 90, 90, False, "Century Gothic" ) )
 		
 		# Cell Defaults
+		self.m_grid1.SetDefaultCellFont( wx.Font( 11, 74, 90, 90, False, "Century Gothic" ) )
 		self.m_grid1.SetDefaultCellAlignment( wx.ALIGN_LEFT, wx.ALIGN_TOP )
 		bSizer6.Add( self.m_grid1, 0, wx.ALL|wx.EXPAND, 5 )
 		
@@ -76,8 +80,13 @@ class MyFrame1 ( wx.Frame ):
 		self.m_staticText2.Wrap( -1 )
 		bSizer71.Add( self.m_staticText2, 0, wx.ALIGN_CENTER|wx.ALIGN_CENTER_HORIZONTAL|wx.ALIGN_CENTER_VERTICAL|wx.ALL, 5 )
 		
-		self.pco = wx.TextCtrl( self.m_panel1, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize, 0 )
-		bSizer71.Add( self.pco, 0, wx.ALIGN_CENTER_HORIZONTAL|wx.ALIGN_CENTER_VERTICAL|wx.ALL, 5 )
+		self.pco = wx.StaticText( self.m_panel1, wx.ID_ANY, u"pc", wx.DefaultPosition, wx.Size( 100,-1 ), wx.ALIGN_CENTRE )
+		self.pco.Wrap( -1 )
+		self.pco.SetFont( wx.Font( 14, 74, 90, 90, False, "Arial" ) )
+		self.pco.SetForegroundColour( wx.SystemSettings.GetColour( wx.SYS_COLOUR_BTNTEXT ) )
+		self.pco.SetBackgroundColour( wx.SystemSettings.GetColour( wx.SYS_COLOUR_BTNHIGHLIGHT ) )
+		
+		bSizer71.Add( self.pco, 0, wx.ALIGN_CENTER|wx.ALIGN_CENTER_VERTICAL|wx.ALL, 5 )
 		
 		
 		bSizer61.Add( bSizer71, 1, wx.ALIGN_CENTER_VERTICAL, 5 )
@@ -88,8 +97,13 @@ class MyFrame1 ( wx.Frame ):
 		self.m_staticText3.Wrap( -1 )
 		bSizer8.Add( self.m_staticText3, 0, wx.ALIGN_CENTER|wx.ALL, 5 )
 		
-		self.actual = wx.TextCtrl( self.m_panel1, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize, 0 )
-		bSizer8.Add( self.actual, 0, wx.ALIGN_CENTER|wx.ALL, 5 )
+		self.inow = wx.StaticText( self.m_panel1, wx.ID_ANY, u"token", wx.DefaultPosition, wx.Size( 100,-1 ), wx.ALIGN_CENTRE )
+		self.inow.Wrap( -1 )
+		self.inow.SetFont( wx.Font( 14, 74, 90, 90, False, "Arial" ) )
+		self.inow.SetForegroundColour( wx.SystemSettings.GetColour( wx.SYS_COLOUR_BTNTEXT ) )
+		self.inow.SetBackgroundColour( wx.SystemSettings.GetColour( wx.SYS_COLOUR_BTNHIGHLIGHT ) )
+		
+		bSizer8.Add( self.inow, 0, wx.ALIGN_CENTER|wx.ALIGN_CENTER_HORIZONTAL|wx.ALL, 5 )
 		
 		
 		bSizer61.Add( bSizer8, 1, wx.ALIGN_CENTER_VERTICAL, 5 )
@@ -97,24 +111,42 @@ class MyFrame1 ( wx.Frame ):
 		
 		bSizer7.Add( bSizer61, 1, wx.ALIGN_CENTER_VERTICAL|wx.EXPAND, 5 )
 		
-		bSizer12 = wx.BoxSizer( wx.VERTICAL )
+		bSizer12 = wx.BoxSizer( wx.HORIZONTAL )
+		
+		bSizer18 = wx.BoxSizer( wx.VERTICAL )
+		
+		self.m_bpButton2 = wx.BitmapButton( self.m_panel1, wx.ID_ANY, wx.Bitmap( u"ICONO.bmp", wx.BITMAP_TYPE_ANY ), wx.DefaultPosition, wx.DefaultSize, wx.BU_AUTODRAW )
+		bSizer18.Add( self.m_bpButton2, 0, wx.ALIGN_CENTER|wx.ALIGN_CENTER_HORIZONTAL|wx.ALL, 5 )
+		
+		
+		bSizer12.Add( bSizer18, 1, wx.ALIGN_CENTER_HORIZONTAL|wx.ALIGN_CENTER_VERTICAL|wx.EXPAND, 5 )
+		
+		bSizer16 = wx.BoxSizer( wx.VERTICAL )
 		
 		bSizer14 = wx.BoxSizer( wx.VERTICAL )
 		
-		self.m_staticText5 = wx.StaticText( self.m_panel1, wx.ID_ANY, u"SIMUC", wx.DefaultPosition, wx.DefaultSize, 0 )
-		self.m_staticText5.Wrap( -1 )
-		bSizer14.Add( self.m_staticText5, 0, wx.ALIGN_CENTER_HORIZONTAL|wx.ALIGN_CENTER_VERTICAL|wx.ALL, 5 )
+		self.titulo = wx.StaticText( self.m_panel1, wx.ID_ANY, u"SIMUSI", wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.titulo.Wrap( -1 )
+		self.titulo.SetFont( wx.Font( 22, 74, 90, 90, False, "Arial Rounded MT Bold" ) )
+		self.titulo.SetForegroundColour( wx.Colour( 70, 57, 234 ) )
+		
+		bSizer14.Add( self.titulo, 0, wx.ALIGN_CENTER_HORIZONTAL|wx.ALIGN_CENTER_VERTICAL|wx.ALL, 5 )
 		
 		
-		bSizer12.Add( bSizer14, 1, wx.ALIGN_CENTER_HORIZONTAL|wx.ALIGN_CENTER_VERTICAL|wx.EXPAND|wx.SHAPED, 5 )
+		bSizer16.Add( bSizer14, 1, wx.ALIGN_CENTER_HORIZONTAL|wx.ALIGN_CENTER_VERTICAL|wx.EXPAND|wx.SHAPED, 5 )
 		
 		bSizer13 = wx.BoxSizer( wx.VERTICAL )
 		
-		self.b_ejecutar = wx.Button( self.m_panel1, wx.ID_ANY, u"Ejecutar", wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.b_ejecutar = wx.Button( self.m_panel1, wx.ID_ANY, u"Ejecutar", wx.DefaultPosition, wx.Size( 100,50 ), 0 )
+		self.b_ejecutar.SetBackgroundColour( wx.SystemSettings.GetColour( wx.SYS_COLOUR_3DLIGHT ) )
+		
 		bSizer13.Add( self.b_ejecutar, 0, wx.ALIGN_CENTER|wx.ALIGN_CENTER_HORIZONTAL|wx.ALIGN_CENTER_VERTICAL|wx.ALL, 5 )
 		
 		
-		bSizer12.Add( bSizer13, 1, wx.ALIGN_CENTER|wx.ALIGN_CENTER_HORIZONTAL|wx.ALIGN_CENTER_VERTICAL|wx.EXPAND, 5 )
+		bSizer16.Add( bSizer13, 1, wx.ALIGN_CENTER|wx.ALIGN_CENTER_HORIZONTAL|wx.ALIGN_CENTER_VERTICAL|wx.EXPAND, 5 )
+		
+		
+		bSizer12.Add( bSizer16, 1, wx.EXPAND, 5 )
 		
 		
 		bSizer7.Add( bSizer12, 1, wx.ALIGN_CENTER_VERTICAL|wx.EXPAND, 5 )
@@ -147,7 +179,7 @@ class MyFrame1 ( wx.Frame ):
 		self.m_staticText4.Wrap( -1 )
 		bSizer10.Add( self.m_staticText4, 0, wx.ALIGN_CENTER|wx.ALIGN_CENTER_HORIZONTAL|wx.ALIGN_CENTER_VERTICAL|wx.ALL, 5 )
 		
-		self.m_slider1 = wx.Slider( self.m_panel1, wx.ID_ANY, 50, 0, 100, wx.DefaultPosition, wx.DefaultSize, wx.SL_HORIZONTAL )
+		self.m_slider1 = wx.Slider( self.m_panel1, wx.ID_ANY, 50, 1, 100, wx.DefaultPosition, wx.DefaultSize, wx.SL_SELRANGE|wx.SL_VERTICAL )
 		bSizer10.Add( self.m_slider1, 0, wx.ALIGN_CENTER_HORIZONTAL|wx.ALIGN_CENTER_VERTICAL|wx.ALL, 5 )
 		
 		
@@ -183,4 +215,5 @@ class MyFrame1 ( wx.Frame ):
 		event.Skip()
 	def b_ejecutarOnButtonClick( self, event ):
 		event.Skip()
+	
 
